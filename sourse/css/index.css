@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.widget {
+    width: 290px;
+    padding: 24px;
+    background-color: #fff;
+    border: rgba(196, 202, 208, 0.5) solid 1px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.widget__title {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    font-size: 22px;
+    font-family: Helios Cond, sans-serif;
+    color: #333;
+}
+
+.widget__section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wideget__cardEmployees {
+    text-decoration: none;
+    font-family: Helios Cond, sans-serif;
+    color: #000;
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    padding: 10px 0 10px 10px;
+    border-radius: 12px;
+    background-color: #f4f6fa;
+    position: relative;
+    z-index: 2;
+}
+
+.cardEmployees__leftBox {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.cardEmployees__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-default-avatar {
+    background: #7b8691 url(/bitrix/js/ui/icons/b24/images/ui-user.svg?v2) no-repeat center;
+    background-size: 100% auto;
+}
+
+.wideget__card {
+    position: relative;
+}
+
+.cardEmployees__reactions {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    position: absolute;
+    z-index: 7;
+    bottom: 10px;
+    left: 13px;
+}
+
+.reactions__logo {
+    border-style: none;
+    cursor: pointer;
+    background-color: #f4f6fa;
+    width: 24px;
+    height: 24px;
+}
+
+.cardEmployees__rightBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardEmployees__userName {
+    margin-bottom: 5px;
+}
+
+.cardEmployees__jobTitle {
+    margin-bottom: 5px;
+}
+
+.cardEmployees__jobTitle p{
+    font-size: 14px;
+    color: #80868e;
+
+}
+
+.cardEmployees__date {
+    font-size: 14px;
+    color: #80868e;
+}
+
+.wideget__cardEmployees:hover {
+    background-color: #D9F5FD;
+    transition: 0.5s ease-in-out;
+}
+
+.wideget__card:hover .wideget__cardEmployees {
+    background-color: #D9F5FD;
+    transition: 0.5s ease-in-out;
+}
+
+.wideget__cardEmployees:hover .cardEmployees__jobTitle p{
+    color: #006FAC;
+    transition: 0.5s ease-in-out;
+}
+
+.wideget__card:hover .reactions__logo{
+    background-color: #D9F5FD;
+    transition: 0.5s ease-in-out;
+}
+
+@font-face {
+    font-family: "Helios Cond";
+    src: url("../fonts/ofont.ru_Helios Cond.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
