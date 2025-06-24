@@ -26,7 +26,7 @@
     gap: 5px;
 }
 
-.wideget__cardEmployees {
+.widget__cardEmployees {
     text-decoration: none;
     font-family: Helios Cond, sans-serif;
     color: #000;
@@ -60,7 +60,7 @@
     background-size: 100% auto;
 }
 
-.wideget__card {
+.widget__card {
     position: relative;
 }
 
@@ -79,8 +79,15 @@
     border-style: none;
     cursor: pointer;
     background-color: #f4f6fa;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+}
+
+.reactions__counter {
+    font-family: Helios Cond, sans-serif;
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .cardEmployees__rightBox {
@@ -108,25 +115,34 @@
     color: #80868e;
 }
 
-.wideget__cardEmployees:hover {
-    background-color: #D9F5FD;
-    transition: 0.5s ease-in-out;
+
+.reactions__logo svg:hover{
+    fill: #006FAC;
+    transition: 0.2s ease-in-out;
 }
 
-.wideget__card:hover .wideget__cardEmployees {
+.widget__cardEmployees:hover {
     background-color: #D9F5FD;
     transition: 0.5s ease-in-out;
+    cursor: default;
 }
 
-.wideget__cardEmployees:hover .cardEmployees__jobTitle p{
+.widget__card:hover .widget__cardEmployees {
+    background-color: #D9F5FD;
+    transition: 0.5s ease-in-out;
+    cursor: default;
+}
+
+.widget__cardEmployees:hover .cardEmployees__jobTitle p{
     color: #006FAC;
     transition: 0.5s ease-in-out;
 }
 
-.wideget__card:hover .reactions__logo{
+.widget__card:hover .reactions__logo{
     background-color: #D9F5FD;
     transition: 0.5s ease-in-out;
 }
+
 
 @font-face {
     font-family: "Helios Cond";
