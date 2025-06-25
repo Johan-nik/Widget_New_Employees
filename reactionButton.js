@@ -2,41 +2,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const reactionButtons = document.querySelectorAll('#reactionsButton');
 
     reactionButtons.forEach(button => {
+        const card = button.closest('.widget__card');
+        const cardId = card.dataset.cardId || 'card_' + Date.now();
+        card.dataset.cardId = cardId;
+        
+        const svgPath = button.querySelector('.reaction-icon');
+        const counter = card.querySelector('.reactions__counter p');
+        
+        // Восстановление состояния из localStorage
+        if (localStorage.getItem(`welcome_${cardId}`) === 'true') {
+            button.disabled = true;
+            svgPath.style.fill = '#006FAC';
+        }
+
         button.addEventListener('click', async function(event) {
             event.preventDefault();
-            
-            const card = this.closest('.widget__card');
-            const counter = card.querySelector('.reactions__counter p');
-            const currentCount = parseInt(counter.textContent);
+            if (button.disabled) return;
 
-            // Оптимистичное обновление (счетчик меняется ДО запроса)
+            button.disabled = true;
+            svgPath.style.fill = '#006FAC';
+            const currentCount = parseInt(counter.textContent);
             counter.textContent = currentCount + 1;
 
             try {
-                // Отправка данных на сервер
-                const response = await fetch('https://ваш-бэкенд.ру/api/like', {
+                const response = await fetch('/api/welcome', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        currentCount: currentCount
+                    body: JSON.stringify({ 
+                        cardId: cardId,
+                        action: 'welcome'
                     }),
                 });
 
                 if (!response.ok) {
-                    throw new Error('Сервер вернул ошибку');
+                    throw new Error('Ошибка сервера');
                 }
 
-                // Если сервер возвращает актуальный счетчик (опционально)
-                const data = await response.json();
-                counter.textContent = data.newCount;
+                // Сохраняем факт приветствия
+                localStorage.setItem(`welcome_${cardId}`, 'true');
 
             } catch (error) {
-                // Откат при ошибке
+                // Откатываем изменения при ошибке
+                button.disabled = false;
+                svgPath.style.fill = '';
                 counter.textContent = currentCount;
-                console.error('Ошибка:', error);
-                alert('Не удалось отправить реакцию. Проверьте подключение.');
+                console.error('Ошибка при отправке:', error);
             }
         });
     });

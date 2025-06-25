@@ -144,6 +144,25 @@
 }
 
 
+/* Стили для заблокированной кнопки */
+.reactions__logo--disabled {
+    cursor: default !important;
+    opacity: 0.8;
+}
+
+.reactions__logo--disabled .reaction-icon {
+    fill: #006FAC !important;
+}
+
+/* Убираем hover-эффект для заблокированной кнопки */
+.reactions__logo--disabled:hover {
+    background-color: #D9F5FD !important;
+}
+
+.reactions__logo--disabled:hover .reaction-icon {
+    fill: #006FAC !important;
+}
+
 @font-face {
     font-family: "Helios Cond";
     src: url("../fonts/ofont.ru_Helios Cond.ttf") format("truetype");
